@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://6dosxwsc16p0"]
 
 [ext_resource type="Texture2D" uid="uid://cffubiq7vox1a" path="res://assets/screens/Desktop.png" id="1_5s8ba"]
-[ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/clicker.tscn" id="1_o4p7a"]
+[ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/main.tscn" id="1_o4p7a"]
 [ext_resource type="Script" path="res://scenes/desktop.gd" id="1_tew16"]
 [ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="4_i5w2l"]
 [ext_resource type="PackedScene" uid="uid://cj1xqadh4a5ar" path="res://assets/popups/blank.tscn" id="5_u120a"]
@@ -29,9 +29,6 @@ autostart = true
 [node name="CookieClicker" parent="." instance=ExtResource("1_o4p7a")]
 visible = false
 top_level = true
-layout_mode = 1
-offset_left = 1.0
-offset_right = 1.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TextureRect" parent="."]
