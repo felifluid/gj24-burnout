@@ -287,5 +287,7 @@ sprite_frames = SubResource("SpriteFrames_vkx3n")
 animation = &"12"
 centered = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
