@@ -5,6 +5,7 @@
 
 [sub_resource type="Theme" id="Theme_hxmm4"]
 default_font = ExtResource("2_423o8")
+default_font_size = 16
 
 [node name="CookieClicker" type="Control" node_paths=PackedStringArray("label")]
 layout_mode = 3
