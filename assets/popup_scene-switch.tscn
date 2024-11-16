@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgxobgsjfq55d"]
+
+[ext_resource type="Script" path="res://scripts/popup.gd" id="1_qfa6g"]
+[ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_xagdt"]
+[ext_resource type="Script" path="res://scenes/switch_interrupt.gd" id="3_8eyim"]
+
+[sub_resource type="Theme" id="Theme_oijl7"]
+default_font = ExtResource("2_xagdt")
+default_font_size = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc3ae"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.243728, 0.215914, 0.7663, 1)
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_offset = Vector2(8, 5)
+anti_aliasing = false
+anti_aliasing_size = 5.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="popup" type="Window" parent="."]
+auto_translate_mode = 1
+title = "Go home?"
+initial_position = 1
+size = Vector2i(700, 200)
+transient = true
+unresizable = true
+theme_override_fonts/title_font = ExtResource("2_xagdt")
+script = ExtResource("1_qfa6g")
+
+[node name="Camera2D" type="Camera2D" parent="popup"]
+zoom = Vector2(2, 2)
+editor_draw_drag_margin = true
+
+[node name="Button" type="Button" parent="popup/Camera2D"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 400.0
+offset_bottom = 120.0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(-100, 0)
+theme = SubResource("Theme_oijl7")
+theme_override_colors/font_disabled_color = Color(0.28647, 0.498037, 0.989545, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/font_hover_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/font_pressed_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/font_focus_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/font_color = Color(0.243728, 0.215914, 0.7663, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/icon_pressed_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/icon_hover_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/icon_disabled_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_xagdt")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_mc3ae")
+text = "CLICK HERE TO GO HOME"
+script = ExtResource("3_8eyim")
