@@ -1,7 +1,7 @@
 extends CharacterBody2D
+@onready var _animated_sprite = $AnimatedSprite2D
 
-
-const SPEED = 300.0
+const SPEED = 50.0
 const JUMP_VELOCITY = -400.0
 
 
@@ -23,3 +23,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	if Input.is_action_pressed("ui_right"):
+		_animated_sprite.play("default")
+	else:
+		_animated_sprite.stop()
