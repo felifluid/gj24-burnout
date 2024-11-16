@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dok6ybrsc3evg"]
+[gd_scene load_steps=9 format=3 uid="uid://is2joemd5dpn"]
 
 [ext_resource type="Texture2D" uid="uid://pcuojgr6xr0q" path="res://assets/Walking.png" id="1_4b3nt"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_657ji"]
@@ -46,6 +46,10 @@ size = Vector2(12, 24)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_657ji")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-1, -9)
+zoom = Vector2(4.1, 4.1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
