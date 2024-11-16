@@ -17,12 +17,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tew16")
-dayHours = 10
 
 [node name="DayTimer" type="Timer" parent="."]
 wait_time = 120.0
-one_shot = true
-autostart = true
 
 [node name="CookieClicker" parent="." instance=ExtResource("1_o4p7a")]
 visible = false
@@ -44,6 +41,9 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.02239)
 texture = ExtResource("1_5s8ba")
+
+[node name="PopupTimer" type="Timer" parent="."]
+wait_time = 15.0
 
 [node name="Clock" type="Label" parent="."]
 layout_mode = 1
