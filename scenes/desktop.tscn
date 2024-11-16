@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://6dosxwsc16p0"]
+[gd_scene load_steps=7 format=3 uid="uid://6dosxwsc16p0"]
 
 [ext_resource type="Texture2D" uid="uid://cffubiq7vox1a" path="res://assets/screens/Desktop.png" id="1_5s8ba"]
 [ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/main.tscn" id="1_o4p7a"]
 [ext_resource type="Script" path="res://scenes/desktop.gd" id="1_tew16"]
 [ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="4_i5w2l"]
+[ext_resource type="PackedScene" uid="uid://cj1xqadh4a5ar" path="res://assets/popups/blank.tscn" id="5_u120a"]
 
 [sub_resource type="Theme" id="Theme_hnn1c"]
 default_font = ExtResource("4_i5w2l")
@@ -17,10 +18,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tew16")
-dayHours = 10
+dayHours = 12
+workshift = 9
 
 [node name="DayTimer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
@@ -55,3 +57,9 @@ offset_bottom = 23.0
 grow_horizontal = 0
 theme = SubResource("Theme_hnn1c")
 text = "<Uhrzeit>"
+
+[node name="youAreGoingHome" parent="." instance=ExtResource("5_u120a")]
+visible = false
+showtime = 10.0
+
+[connection signal="clock_changed" from="." to="youAreGoingHome" method="_on_control_clock_changed"]
