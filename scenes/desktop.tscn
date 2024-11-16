@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://6dosxwsc16p0"]
+
+[ext_resource type="Texture2D" uid="uid://cffubiq7vox1a" path="res://assets/screens/Desktop.png" id="1_5s8ba"]
+[ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/clicker.tscn" id="1_o4p7a"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CookieClicker" parent="." instance=ExtResource("1_o4p7a")]
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.079
+anchor_right = 0.707
+anchor_bottom = 0.713
+offset_left = -0.488007
+offset_top = -0.192001
+offset_right = -0.463989
+offset_bottom = -0.0240479
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+show_behind_parent = true
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5s8ba")
