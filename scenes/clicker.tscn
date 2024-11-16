@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2givtdscyxv4"]
+[gd_scene load_steps=4 format=3 uid="uid://d2givtdscyxv4"]
 
 [ext_resource type="Script" path="res://scripts/cookie_clicker.gd" id="1_5lbxp"]
+[ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_423o8"]
+
+[sub_resource type="Theme" id="Theme_hxmm4"]
+default_font = ExtResource("2_423o8")
 
 [node name="CookieClicker" type="Control" node_paths=PackedStringArray("label")]
 layout_mode = 3
@@ -18,6 +22,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = SubResource("Theme_hxmm4")
 theme_type_variation = &"HeaderLarge"
 text = "Punkte:"
 horizontal_alignment = 1
