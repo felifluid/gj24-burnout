@@ -21,7 +21,7 @@ func spawn_cookie() -> void:
 	cookie_instance.connect("pressed", self._on_button_pressed)
 	cookie_instance.set_position(Vector2(randf_range(range_min.x, range_max.x), randf_range(range_min.y, range_max.y)))
 	
-
+					
 func _on_button_pressed() -> void:
 	increase_points()
 	update_label_text()
