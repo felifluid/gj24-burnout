@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dih7mj7nc31o4"]
+[gd_scene load_steps=4 format=3 uid="uid://cnj1futlejjq1"]
 
-[ext_resource type="Script" path="res://text_box.gd" id="1_wiieq"]
-[ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_awb2t"]
+[ext_resource type="Script" path="res://scripts/text_box.gd" id="1_k0rfl"]
+[ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_nyevc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1bgf"]
 bg_color = Color(0.138613, 0.113984, 0.130442, 1)
@@ -10,27 +10,15 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 
-[node name="TextBox" type="CanvasLayer"]
-script = ExtResource("1_wiieq")
-text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum.
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-metadata/_edit_pinned_properties_ = [&"text"]
+[node name="TextBox" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 150)
+offset_right = 449.0
+offset_bottom = 150.0
+script = ExtResource("1_k0rfl")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -119.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 12
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
@@ -53,7 +41,7 @@ custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("2_awb2t")
+theme_override_fonts/font = ExtResource("2_nyevc")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 3
 clip_text = true
@@ -62,7 +50,7 @@ clip_text = true
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("2_awb2t")
+theme_override_fonts/font = ExtResource("2_nyevc")
 theme_override_font_sizes/font_size = 24
 text = "V"
 horizontal_alignment = 1

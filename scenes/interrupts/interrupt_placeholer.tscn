@@ -1,10 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://d221k6ici2wws"]
 
+[ext_resource type="PackedScene" uid="uid://cnj1futlejjq1" path="res://scenes/text_box.tscn" id="1_k1inu"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krmri"]
 bg_color = Color(0.293054, 0.342054, 0.431772, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb6p3"]
-bg_color = Color(0.545586, 0.560712, 0.900052, 1)
 
 [node name="interrupt_placeholder" type="Control"]
 layout_mode = 3
@@ -38,10 +37,8 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="inputArea" type="PanelContainer" parent="background/MarginContainer/RowsContainer"]
-custom_minimum_size = Vector2(0, 150)
+[node name="TextBox" parent="background/MarginContainer/RowsContainer" instance=ExtResource("1_k1inu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vb6p3")
 
 [node name="Name" type="Node2D" parent="."]
 
