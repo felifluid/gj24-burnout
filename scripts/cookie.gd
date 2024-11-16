@@ -27,7 +27,7 @@ func _on_pressed() -> void:
 	else :
 		buttonDone.emit(hitpoints)
 		var tween = get_tree().create_tween()
-		tween.tween_property(sprite, "modulate", Color(0,0,0,0), 0.2).set_ease(0).set_trans(1)
+		tween.tween_property(sprite, "modulate", Color(0,0,0,0), 0.2).set_ease(0).set_trans(1)		
 		
 		await tween.finished
 		queue_free()
@@ -38,6 +38,6 @@ func _fade(sprite):
 	tween.interpolate_property(sprite, "modulate: a", 
 	sprite.modulate.a, 0.0, 0.25, tween.TRANS_SINE, tween.EASE_OUT)
 
-
+			
 func _on_timer_timeout() -> void:
 	queue_free()
