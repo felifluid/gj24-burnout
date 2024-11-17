@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2givtdscyxv4"]
+[gd_scene load_steps=5 format=3 uid="uid://d2givtdscyxv4"]
 
 [ext_resource type="Script" path="res://scripts/cookie_clicker.gd" id="1_5lbxp"]
 [ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_423o8"]
@@ -7,7 +7,10 @@
 default_font = ExtResource("2_423o8")
 default_font_size = 16
 
-[node name="CookieClicker" type="Control" node_paths=PackedStringArray("label")]
+[sub_resource type="Theme" id="Theme_q0jyd"]
+default_font = ExtResource("2_423o8")
+
+[node name="CookieClicker" type="Control" node_paths=PackedStringArray("label", "labelCombo", "comboDeclineCD", "comboDecline")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +19,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5lbxp")
 label = NodePath("Label")
+labelCombo = NodePath("Combo")
+comboDeclineCD = NodePath("ComboDeclineCooldown")
+comboDecline = NodePath("ComboDecline")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -29,7 +35,32 @@ text = "Punkte:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Combo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 26.0
+offset_right = 3.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme = SubResource("Theme_q0jyd")
+theme_override_colors/font_color = Color(0.909804, 0.8, 0, 1)
+text = "COMBO x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboDecline" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="ComboDeclineCooldown" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ComboDecline" to="." method="_on_combo_decline_timeout"]
+[connection signal="timeout" from="ComboDeclineCooldown" to="." method="_on_combo_decline_cooldown_timeout"]
