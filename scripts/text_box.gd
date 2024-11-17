@@ -2,10 +2,7 @@ extends Container
 
 const CHAR_READ_RATE = 0.05
 
-@export var text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum.
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+@export var text : String
 
 var text_queue : Array
 

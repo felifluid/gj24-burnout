@@ -1,14 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfma8vn6p7pq4"]
+[gd_scene load_steps=8 format=3 uid="uid://cjnvpeocj61kp"]
 
-[ext_resource type="Script" path="res://scripts/popup_with_button.gd" id="1_fwvm8"]
-[ext_resource type="PackedScene" uid="uid://cnj1futlejjq1" path="res://scenes/text_box.tscn" id="2_2spju"]
-[ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_i1b1o"]
+[ext_resource type="Script" path="res://scripts/popup.gd" id="1_vfltg"]
+[ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_dfo8l"]
+[ext_resource type="Script" path="res://scripts/interrupt_button.gd" id="3_ihap5"]
+[ext_resource type="PackedScene" uid="uid://cnj1futlejjq1" path="res://scenes/text_box.tscn" id="4_1ib7s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrl4l"]
 bg_color = Color(0.293054, 0.342054, 0.431772, 1)
 
 [sub_resource type="Theme" id="Theme_03so3"]
-default_font = ExtResource("2_i1b1o")
+default_font = ExtResource("2_dfo8l")
 default_font_size = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndtsp"]
@@ -32,7 +33,7 @@ initial_position = 1
 size = Vector2i(600, 500)
 transient = true
 unresizable = true
-script = ExtResource("1_fwvm8")
+script = ExtResource("1_vfltg")
 showtime = 10.0
 
 [node name="background" type="PanelContainer" parent="."]
@@ -76,12 +77,11 @@ theme_override_colors/icon_hover_color = Color(0.286275, 0.498039, 0.988235, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.286275, 0.498039, 0.988235, 1)
 theme_override_colors/icon_disabled_color = Color(0.286275, 0.498039, 0.988235, 1)
 theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("2_i1b1o")
+theme_override_fonts/font = ExtResource("2_dfo8l")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ndtsp")
 text = "CLICK HERE TO GO HOME"
+script = ExtResource("3_ihap5")
 
-[node name="TextBox" parent="background/MarginContainer/RowsContainer" instance=ExtResource("2_2spju")]
+[node name="TextBox" parent="background/MarginContainer/RowsContainer" instance=ExtResource("4_1ib7s")]
 layout_mode = 2
-
-[connection signal="pressed" from="background/MarginContainer/RowsContainer/Button" to="." method="_on_button_pressed"]
