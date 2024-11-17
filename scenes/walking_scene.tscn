@@ -1,11 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjwwsoloyvg5y"]
+[gd_scene load_steps=17 format=3 uid="uid://cjwwsoloyvg5y"]
 
+[ext_resource type="Script" path="res://scripts/walking_scene.gd" id="1_546qh"]
 [ext_resource type="Texture2D" uid="uid://otm2f838uwfe" path="res://assets/Wall.png" id="1_obsdf"]
 [ext_resource type="Texture2D" uid="uid://dtbh7s4jn1yu4" path="res://assets/Objects1.png" id="2_k8o8n"]
 [ext_resource type="Texture2D" uid="uid://67gdrdg52dug" path="res://assets/Background.png" id="3_642ww"]
 [ext_resource type="Texture2D" uid="uid://dswf6m85exygp" path="res://assets/Clouds_.png" id="4_saw4i"]
 [ext_resource type="PackedScene" uid="uid://is2joemd5dpn" path="res://scenes/character.tscn" id="5_hmjr0"]
 [ext_resource type="Script" path="res://scripts/area_2d.gd" id="6_60nqs"]
+[ext_resource type="AudioStream" uid="uid://f6tbkutsap0o" path="res://assets/sounds/trial train.mp3" id="7_0p18y"]
+[ext_resource type="Script" path="res://scripts/audio_stream_player.gd" id="8_4qr6m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsxy7"]
 texture = ExtResource("1_obsdf")
@@ -428,6 +431,7 @@ distance = -106.0
 radius = 39.1152
 
 [node name="Walking_scene" type="Node2D"]
+script = ExtResource("1_546qh")
 
 [node name="TileMap3" type="TileMap" parent="."]
 texture_filter = 1
@@ -468,6 +472,13 @@ position = Vector2(-1, -15)
 shape = SubResource("CircleShape2D_s4rt6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0p18y")
+volume_db = 8.0
+autoplay = true
+parameters/looping = true
+script = ExtResource("8_4qr6m")
 
+[connection signal="sceneEnd" from="Character" to="." method="_on_character_scene_end"]
+[connection signal="sceneEnd" from="Character" to="AudioStreamPlayer" method="_on_character_scene_end"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="endOfScreen" from="Area2D" to="Character" method="_on_area_2d_end_of_screen"]

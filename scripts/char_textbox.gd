@@ -21,6 +21,8 @@ enum State {
 
 var current_state
 
+signal textDone
+
 func _ready() -> void:
 	text_queue = Array(text.split('\n'))
 	tween = get_tree().create_tween()
@@ -59,8 +61,8 @@ func show_textbox() -> void:
 
 func hide_textbox() -> void:
 	label.text = ""
-	self.hide()
-	get_tree().change_scene_to_file("res://scenes/desktop.tscn")
+	textDone.emit()
+	#get_tree().change_scene_to_file("res://scenes/desktop.tscn")
 
 func change_state(next_state):
 	current_state = next_state

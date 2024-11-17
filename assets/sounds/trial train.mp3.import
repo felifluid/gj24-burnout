@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://f6tbkutsap0o"
+path="res://.godot/imported/trial train.mp3-3f3d9ec985e0e2fe023405a10a3594d1.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/trial train.mp3"
+dest_files=["res://.godot/imported/trial train.mp3-3f3d9ec985e0e2fe023405a10a3594d1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
