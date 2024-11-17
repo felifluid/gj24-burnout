@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/desktop.gd" id="1_tew16"]
 [ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/clicker.tscn" id="2_3pdo6"]
 [ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="4_i5w2l"]
-[ext_resource type="PackedScene" uid="uid://cjnvpeocj61kp" path="res://scenes/interrupts/goHomeNow.tscn" id="5_ymmuk"]
+[ext_resource type="PackedScene" uid="uid://cfma8vn6p7pq4" path="res://scenes/interrupts/blank-button.tscn" id="5_fin45"]
 
 [sub_resource type="Theme" id="Theme_hnn1c"]
 default_font = ExtResource("4_i5w2l")
@@ -60,4 +60,15 @@ grow_horizontal = 0
 theme = SubResource("Theme_hnn1c")
 text = "<Uhrzeit>"
 
-[node name="popup" parent="." instance=ExtResource("5_ymmuk")]
+[node name="beingSendHome" parent="." instance=ExtResource("5_fin45")]
+initial_position = 2
+size = Vector2i(800, 500)
+visible = false
+borderless = true
+popup_window = true
+showtime = 19.0
+textboxText = "I really should head home now..."
+scene = "res://scenes/walking_scene.tscn"
+buttonText = "click here to go home"
+
+[connection signal="clock_changed" from="." to="beingSendHome" method="_on_control_clock_changed"]

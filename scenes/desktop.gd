@@ -12,11 +12,9 @@ signal clock_changed(time : float)
 func _ready() -> void:
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	updateClock()
 	pass
-
 
 func getTime() -> float:
 	var ellapsed_time : float  = dayTimer.wait_time - dayTimer.time_left

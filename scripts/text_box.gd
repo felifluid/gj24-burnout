@@ -19,12 +19,12 @@ enum State {
 
 var current_state
 
-func _ready() -> void:
+func activate() -> void:
 	text_queue = Array(text.split('\n'))
 	tween = get_tree().create_tween()
 	tween.connect("finished", _on_tween_finished)
 	change_state(State.READY)
-	
+
 func _process(delta: float) -> void:
 	match current_state:
 		State.READY:
