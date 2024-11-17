@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjwwsoloyvg5y"]
+[gd_scene load_steps=14 format=3 uid="uid://cjwwsoloyvg5y"]
 
 [ext_resource type="Texture2D" uid="uid://otm2f838uwfe" path="res://assets/Wall.png" id="1_obsdf"]
 [ext_resource type="Texture2D" uid="uid://dtbh7s4jn1yu4" path="res://assets/Objects1.png" id="2_k8o8n"]
 [ext_resource type="Texture2D" uid="uid://67gdrdg52dug" path="res://assets/Background.png" id="3_642ww"]
 [ext_resource type="Texture2D" uid="uid://dswf6m85exygp" path="res://assets/Clouds_.png" id="4_saw4i"]
 [ext_resource type="PackedScene" uid="uid://is2joemd5dpn" path="res://scenes/character.tscn" id="5_hmjr0"]
+[ext_resource type="Script" path="res://scripts/area_2d.gd" id="6_60nqs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsxy7"]
 texture = ExtResource("1_obsdf")
@@ -423,6 +424,9 @@ sources/3 = SubResource("TileSetAtlasSource_602vi")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ayung"]
 distance = -106.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s4rt6"]
+radius = 39.1152
+
 [node name="Walking_scene" type="Node2D"]
 
 [node name="TileMap3" type="TileMap" parent="."]
@@ -454,3 +458,13 @@ offset_right = 1634.0
 offset_bottom = 153.0
 text = "Working under pressure feels like such a rush...                  I'm so excited for this project, I have so many ideas!               It's time to go to bed now and get ready for a new productive day at work!"
 uppercase = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1823, 74)
+script = ExtResource("6_60nqs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -15)
+shape = SubResource("CircleShape2D_s4rt6")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
