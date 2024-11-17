@@ -11,6 +11,8 @@ var text_queue : Array
 
 var tween : Tween
 
+var mouseOver : bool = false
+
 enum State {
 	READY,
 	READING,
@@ -26,8 +28,8 @@ func activate() -> void:
 	change_state(State.READY)
 
 func _process(delta: float) -> void:
-	var mouse_pressed = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
-	var skip_demanded = Input.is_action_just_pressed("ui_accept", true) || mouse_pressed
+	
+	var skip_demanded = Input.is_action_just_pressed("ui_accept", true) && mouseOver
 	match current_state:
 		State.READY:
 			pass
@@ -35,7 +37,6 @@ func _process(delta: float) -> void:
 			if (skip_demanded) :
 				change_state(State.FINISHED)
 		State.FINISHED:
-			
 			if (skip_demanded) :
 				change_state(State.READY)
 
@@ -74,3 +75,11 @@ func change_state(next_state):
 			tween.stop()
 			label.visible_ratio = 1
 			end.visible_ratio = 1
+
+
+func _on_mouse_entered() -> void:
+	mouseOver = true
+
+
+func _on_mouse_exited() -> void:
+	mouseOver = false

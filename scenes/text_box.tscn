@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnj1futlejjq1"]
+[gd_scene load_steps=5 format=3 uid="uid://cnj1futlejjq1"]
 
 [ext_resource type="Script" path="res://scripts/text_box.gd" id="1_k0rfl"]
 [ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_nyevc"]
+
+[sub_resource type="Theme" id="Theme_56xg7"]
+default_base_scale = 1.0
+default_font = ExtResource("2_nyevc")
+default_font_size = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1bgf"]
 bg_color = Color(0.138613, 0.113984, 0.130442, 1)
@@ -12,9 +17,11 @@ border_width_bottom = 5
 
 [node name="TextBox" type="MarginContainer"]
 custom_minimum_size = Vector2(0, 150)
-offset_right = 449.0
+offset_right = 416.0
 offset_bottom = 150.0
+theme = SubResource("Theme_56xg7")
 script = ExtResource("1_k0rfl")
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -41,8 +48,7 @@ custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("2_nyevc")
-theme_override_font_sizes/font_size = 24
+text = "	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 autowrap_mode = 3
 clip_text = true
 
@@ -51,9 +57,11 @@ custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_nyevc")
-theme_override_font_sizes/font_size = 24
 text = "V"
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
