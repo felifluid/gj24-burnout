@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://6dosxwsc16p0"]
+[gd_scene load_steps=8 format=3 uid="uid://6dosxwsc16p0"]
 
 [ext_resource type="Texture2D" uid="uid://cffubiq7vox1a" path="res://assets/screens/Desktop.png" id="1_5s8ba"]
 [ext_resource type="Script" path="res://scenes/desktop.gd" id="1_tew16"]
 [ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/clicker.tscn" id="2_3pdo6"]
 [ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="4_i5w2l"]
 [ext_resource type="PackedScene" uid="uid://cfma8vn6p7pq4" path="res://scenes/interrupts/blank-button.tscn" id="5_fin45"]
+[ext_resource type="PackedScene" uid="uid://da8stg0r8r7o0" path="res://scenes/interrupts/blank.tscn" id="6_d7tqj"]
 
 [sub_resource type="Theme" id="Theme_hnn1c"]
 default_font = ExtResource("4_i5w2l")
@@ -66,6 +67,7 @@ initial_position = 2
 size = Vector2i(800, 500)
 borderless = true
 popup_window = true
+showtime = 20.0
 textboxText = "okay, enough of this!
 I may be behind schedule but I'll just catch up tomorrow.
 ...hopefully"
@@ -73,4 +75,13 @@ scene = "res://scenes/walking_scene.tscn"
 buttonText = "click here to go home"
 imagePath = "res://assets/screens/city_skyline.png"
 
+[node name="morningMeeting" parent="." instance=ExtResource("6_d7tqj")]
+title = "MEETING"
+initial_position = 0
+textboxText = "\"Oh no they are calling for one of those useless Morning meetings. 
+... Gotta keep my head down. They surely won't fire me over skipping one stupid meeting.  I'll just work double time to make up for it\""
+imagePath = "res://assets/Office.png"
+
 [connection signal="clock_changed" from="." to="beingSendHome" method="_on_control_clock_changed"]
+[connection signal="clock_changed" from="." to="morningMeeting" method="_on_control_clock_changed"]
+[connection signal="close_requested" from="morningMeeting" to="morningMeeting" method="_on_close_requested"]

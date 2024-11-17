@@ -57,7 +57,7 @@ func show_textbox() -> void:
 
 func hide_textbox() -> void:
 	label.text = ""
-	self.hide()
+	#self.hide()
 
 func change_state(next_state):
 	current_state = next_state

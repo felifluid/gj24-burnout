@@ -28,8 +28,14 @@ func appear():
 func _process(_delta: float) -> void:
 	pass
 
+
+
 func _on_control_clock_changed(time: float) -> void:
 	if (!hasActivated):
 		if (time >= showtime) :
 			appear()
 			hasActivated = true
+
+
+func _on_close_requested() -> void:
+	self.hide()
