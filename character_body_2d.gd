@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var textbox = get_node("TextBox")
 
-var velocityX = 100.0
+var velocityX = 40.0
 
 func _physics_process(delta: float) -> void:
 	self.velocity.x = velocityX
