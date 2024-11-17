@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfma8vn6p7pq4"]
+
+[ext_resource type="Script" path="res://scripts/popup.gd" id="1_r2xfm"]
+[ext_resource type="PackedScene" uid="uid://cnj1futlejjq1" path="res://scenes/text_box.tscn" id="2_2spju"]
+[ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_i1b1o"]
+[ext_resource type="Script" path="res://scenes/switch_interrupt.gd" id="3_hqjw4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrl4l"]
+bg_color = Color(0.293054, 0.342054, 0.431772, 1)
+
+[sub_resource type="Theme" id="Theme_03so3"]
+default_font = ExtResource("2_i1b1o")
+default_font_size = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndtsp"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.243728, 0.215914, 0.7663, 1)
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_offset = Vector2(8, 5)
+anti_aliasing = false
+anti_aliasing_size = 5.0
+
+[node name="popup" type="Window"]
+auto_translate_mode = 1
+title = "DISTRACTION"
+initial_position = 1
+size = Vector2i(600, 500)
+transient = true
+unresizable = true
+script = ExtResource("1_r2xfm")
+showtime = 10.0
+text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+At vero eos et accusam et justo duo dolores et ea rebum.
+Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+
+[node name="background" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lrl4l")
+
+[node name="MarginContainer" type="MarginContainer" parent="background"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RowsContainer" type="VBoxContainer" parent="background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="gameInfo" type="PanelContainer" parent="background/MarginContainer/RowsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="background/MarginContainer/RowsContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = SubResource("Theme_03so3")
+theme_override_colors/font_disabled_color = Color(0.28647, 0.498037, 0.989545, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/font_hover_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/font_pressed_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/font_focus_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/font_color = Color(0.243728, 0.215914, 0.7663, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/icon_pressed_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/icon_hover_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_colors/icon_disabled_color = Color(0.286275, 0.498039, 0.988235, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_i1b1o")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_ndtsp")
+text = "CLICK HERE TO GO HOME"
+script = ExtResource("3_hqjw4")
+
+[node name="TextBox" parent="background/MarginContainer/RowsContainer" instance=ExtResource("2_2spju")]
+layout_mode = 2
+
+[connection signal="textFinished" from="background/MarginContainer/RowsContainer/TextBox" to="." method="_on_text_box_text_finished"]
