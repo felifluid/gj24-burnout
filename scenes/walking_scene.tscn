@@ -467,4 +467,6 @@ script = ExtResource("6_60nqs")
 position = Vector2(-1, -15)
 shape = SubResource("CircleShape2D_s4rt6")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
