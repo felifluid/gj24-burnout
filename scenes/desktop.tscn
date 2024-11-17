@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://6dosxwsc16p0"]
+[gd_scene load_steps=6 format=3 uid="uid://6dosxwsc16p0"]
 
 [ext_resource type="Texture2D" uid="uid://cffubiq7vox1a" path="res://assets/screens/Desktop.png" id="1_5s8ba"]
 [ext_resource type="Script" path="res://scenes/desktop.gd" id="1_tew16"]
-[ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/clicker.tscn" id="2_1vbgw"]
+[ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/clicker.tscn" id="2_7mfjj"]
 [ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="4_i5w2l"]
-[ext_resource type="PackedScene" uid="uid://cj1xqadh4a5ar" path="res://assets/popups/blank.tscn" id="5_u120a"]
 
 [sub_resource type="Theme" id="Theme_hnn1c"]
 default_font = ExtResource("4_i5w2l")
@@ -26,13 +25,12 @@ wait_time = 30.0
 one_shot = true
 autostart = true
 
-[node name="CookieClicker" parent="." instance=ExtResource("2_1vbgw")]
-top_level = true
+[node name="CookieClicker" parent="." instance=ExtResource("2_7mfjj")]
 layout_mode = 1
-offset_left = 218.0
-offset_top = 48.0
-offset_right = -332.0
-offset_bottom = -168.0
+offset_left = 223.0
+offset_top = 52.0
+offset_right = -331.0
+offset_bottom = -171.0
 
 [node name="Background" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -59,9 +57,3 @@ offset_bottom = 23.0
 grow_horizontal = 0
 theme = SubResource("Theme_hnn1c")
 text = "<Uhrzeit>"
-
-[node name="youAreGoingHome" parent="." instance=ExtResource("5_u120a")]
-visible = false
-showtime = 10.0
-
-[connection signal="clock_changed" from="." to="youAreGoingHome" method="_on_control_clock_changed"]
