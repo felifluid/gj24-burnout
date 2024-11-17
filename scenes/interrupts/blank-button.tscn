@@ -54,9 +54,17 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="gameInfo" type="PanelContainer" parent="background/MarginContainer/RowsContainer"]
+[node name="gameInfo" type="MarginContainer" parent="background/MarginContainer/RowsContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="background/MarginContainer/RowsContainer/gameInfo"]
+texture_filter = 1
+layout_mode = 2
 
 [node name="Button" type="Button" parent="background/MarginContainer/RowsContainer"]
 custom_minimum_size = Vector2(0, 40)

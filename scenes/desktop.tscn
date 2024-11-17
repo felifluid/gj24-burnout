@@ -33,6 +33,7 @@ offset_left = 220.0
 offset_top = 48.0
 offset_right = -331.0
 offset_bottom = -167.0
+mouse_default_cursor_shape = 2
 
 [node name="Background" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -63,12 +64,11 @@ text = "<Uhrzeit>"
 [node name="beingSendHome" parent="." instance=ExtResource("5_fin45")]
 initial_position = 2
 size = Vector2i(800, 500)
-visible = false
 borderless = true
 popup_window = true
-showtime = 19.0
 textboxText = "I really should head home now..."
 scene = "res://scenes/walking_scene.tscn"
 buttonText = "click here to go home"
+imagePath = "res://assets/screens/city_skyline.png"
 
 [connection signal="clock_changed" from="." to="beingSendHome" method="_on_control_clock_changed"]

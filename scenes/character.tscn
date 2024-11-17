@@ -50,6 +50,8 @@ script = ExtResource("1_657ji")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1, -9)
 zoom = Vector2(4.1, 4.1)
+limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1

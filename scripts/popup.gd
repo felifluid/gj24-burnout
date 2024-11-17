@@ -2,8 +2,10 @@ extends Window
 
 @export var showtime : float
 @export_multiline var textboxText : String
+@export_file var imagePath
 
 @onready var textbox = get_node("background/MarginContainer/RowsContainer/TextBox")
+@onready var sprite = get_node("background/MarginContainer/RowsContainer/gameInfo/TextureRect")
 
 var hasActivated : bool = false
 
@@ -15,6 +17,8 @@ func _init():
 
 func _ready() -> void:
 	textbox.text = textboxText
+	var image = Image.load_from_file(imagePath)
+	sprite.texture = ImageTexture.create_from_image(image)
 	
 func appear():
 	textbox.activate()

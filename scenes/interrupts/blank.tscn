@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://da8stg0r8r7o0"]
+[gd_scene load_steps=5 format=3 uid="uid://da8stg0r8r7o0"]
 
 [ext_resource type="Script" path="res://scripts/popup.gd" id="1_d5r6p"]
 [ext_resource type="PackedScene" uid="uid://cnj1futlejjq1" path="res://scenes/text_box.tscn" id="2_yvj0l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrl4l"]
 bg_color = Color(0.293054, 0.342054, 0.431772, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5j4rl"]
 
 [node name="popup" type="Window"]
 auto_translate_mode = 1
@@ -36,8 +38,11 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="gameInfo" type="PanelContainer" parent="background/MarginContainer/RowsContainer"]
+material = SubResource("CanvasItemMaterial_5j4rl")
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="background/MarginContainer/RowsContainer/gameInfo"]
 
 [node name="TextBox" parent="background/MarginContainer/RowsContainer" instance=ExtResource("2_yvj0l")]
 layout_mode = 2

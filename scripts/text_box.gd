@@ -30,10 +30,10 @@ func _process(delta: float) -> void:
 		State.READY:
 			pass
 		State.READING:
-			if Input.is_action_just_pressed("ui_accept") :
+			if (Input.is_action_just_pressed("ui_accept", true)) :
 				change_state(State.FINISHED)
 		State.FINISHED:
-			if Input.is_action_just_pressed("ui_accept") :
+			if Input.is_action_just_pressed("ui_accept", true) :
 				change_state(State.READY)
 
 func display_text() -> void :
