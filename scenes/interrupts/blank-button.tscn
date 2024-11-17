@@ -34,6 +34,8 @@ transient = true
 unresizable = true
 script = ExtResource("1_fwvm8")
 showtime = 10.0
+scene = "<null>"
+imagePath = "<null>"
 
 [node name="background" type="PanelContainer" parent="."]
 anchors_preset = 15

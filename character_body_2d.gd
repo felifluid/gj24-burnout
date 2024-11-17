@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	_animated_sprite.play("default")
 #
 #func _physics_process(delta):
-	## Add the gravity.
+	## Add the gravity.				
 	##if not is_on_floor():
 		##velocity += get_gravity() * delta
 #

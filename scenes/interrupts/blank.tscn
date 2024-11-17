@@ -42,7 +42,9 @@ material = SubResource("CanvasItemMaterial_5j4rl")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="background/MarginContainer/RowsContainer/gameInfo"]
+[node name="TextureRect" type="TextureRect" parent="background/MarginContainer/RowsContainer/gameInfo"]
+texture_filter = 1
+layout_mode = 2
 
 [node name="TextBox" parent="background/MarginContainer/RowsContainer" instance=ExtResource("2_yvj0l")]
 layout_mode = 2
