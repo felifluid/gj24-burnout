@@ -78,10 +78,52 @@ imagePath = "res://assets/screens/city_skyline.png"
 [node name="morningMeeting" parent="." instance=ExtResource("6_d7tqj")]
 title = "MEETING"
 initial_position = 0
+position = Vector2i(0, 36)
+always_on_top = true
+showtime = 8.0
 textboxText = "\"Oh no they are calling for one of those useless Morning meetings. 
 ... Gotta keep my head down. They surely won't fire me over skipping one stupid meeting.  I'll just work double time to make up for it\""
 imagePath = "res://assets/Office.png"
 
+[node name="middayMeeting2" parent="." instance=ExtResource("6_d7tqj")]
+title = "MEETING"
+initial_position = 0
+position = Vector2i(500, 500)
+always_on_top = true
+showtime = 12.0
+textboxText = "\"Uuugh another meeting. I just want to work and all they are doing is slowing me down.\""
+imagePath = "res://assets/popups/Office.png"
+
+[node name="boss" parent="." instance=ExtResource("6_d7tqj")]
+title = "BOSS"
+initial_position = 0
+position = Vector2i(1000, 200)
+always_on_top = true
+showtime = 16.0
+textboxText = "\"The boss is trying to get my attention. 
+Sure they're really welcoming, I just wish they could be more brief. 
+... *sigh*
+... I really need to get some work done .\""
+imagePath = "res://assets/popups/Boss.png"
+
+[node name="eveningMeeting4" parent="." instance=ExtResource("6_d7tqj")]
+title = "MEETING"
+initial_position = 0
+position = Vector2i(1000, 600)
+always_on_top = true
+showtime = 18.0
+textboxText = "\"The boss is trying to get my attention. 
+Sure they're really friendly, I just wish they could be more brief. 
+... *sigh*
+... I really need to get some work done .\""
+imagePath = "res://assets/Office.png"
+
 [connection signal="clock_changed" from="." to="beingSendHome" method="_on_control_clock_changed"]
 [connection signal="clock_changed" from="." to="morningMeeting" method="_on_control_clock_changed"]
+[connection signal="clock_changed" from="." to="middayMeeting2" method="_on_control_clock_changed"]
+[connection signal="clock_changed" from="." to="boss" method="_on_control_clock_changed"]
+[connection signal="clock_changed" from="." to="eveningMeeting4" method="_on_control_clock_changed"]
 [connection signal="close_requested" from="morningMeeting" to="morningMeeting" method="_on_close_requested"]
+[connection signal="close_requested" from="middayMeeting2" to="middayMeeting2" method="_on_close_requested"]
+[connection signal="close_requested" from="boss" to="boss" method="_on_close_requested"]
+[connection signal="close_requested" from="eveningMeeting4" to="eveningMeeting4" method="_on_close_requested"]
