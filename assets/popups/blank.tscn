@@ -1,20 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj1xqadh4a5ar"]
+[gd_scene load_steps=2 format=3 uid="uid://cj1xqadh4a5ar"]
 
 [ext_resource type="Script" path="res://scripts/popup.gd" id="1_d5r6p"]
-[ext_resource type="Texture2D" uid="uid://jtemd3yx0xl" path="res://icon.svg" id="2_4mnqm"]
 
 [node name="popup" type="Window"]
 auto_translate_mode = 1
 title = "DISTRACTION"
 initial_position = 1
-size = Vector2i(500, 600)
+size = Vector2i(600, 200)
 transient = true
 unresizable = true
 script = ExtResource("1_d5r6p")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 1)
-
-[node name="Icon" type="Sprite2D" parent="Camera2D"]
-position = Vector2(2, 46)
-texture = ExtResource("2_4mnqm")

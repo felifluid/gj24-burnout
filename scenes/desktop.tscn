@@ -31,7 +31,6 @@ visible = false
 top_level = true
 position = Vector2(1, 0)
 script = null
-metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TextureRect" parent="."]
 show_behind_parent = true
