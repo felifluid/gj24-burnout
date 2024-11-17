@@ -64,13 +64,14 @@ text = "<Uhrzeit>"
 
 [node name="beingSendHome" parent="." instance=ExtResource("5_fin45")]
 initial_position = 2
-size = Vector2i(800, 500)
+transient = false
 borderless = true
+always_on_top = true
 popup_window = true
 showtime = 20.0
-textboxText = "okay, enough of this!
+textboxText = "\"Okay, enough of this!
 I may be behind schedule but I'll just catch up tomorrow.
-...hopefully"
+...hopefully\""
 scene = "res://scenes/walking_scene.tscn"
 buttonText = "click here to go home"
 imagePath = "res://assets/screens/city_skyline.png"
@@ -80,24 +81,37 @@ title = "MEETING"
 initial_position = 0
 position = Vector2i(0, 36)
 always_on_top = true
-showtime = 8.0
-textboxText = "\"Oh no they are calling for one of those useless Morning meetings. 
-... Gotta keep my head down. They surely won't fire me over skipping one stupid meeting.  I'll just work double time to make up for it\""
+showtime = 9.5
+textboxText = "\"Oh no they are calling for one of those useless morning meetings. 
+... Gotta keep my head down. They surely won't fire me over skipping one stupid meeting. 
+I'll just work double time to make up for it\""
 imagePath = "res://assets/Office.png"
 
 [node name="middayMeeting2" parent="." instance=ExtResource("6_d7tqj")]
 title = "MEETING"
 initial_position = 0
-position = Vector2i(500, 500)
+position = Vector2i(656, 319)
+always_on_top = true
+showtime = 13.0
+textboxText = "\"Uuugh another meeting. 
+I just want to work and all they are doing is slowing me down.\""
+imagePath = "res://assets/popups/meeting.png"
+
+[node name="lunch" parent="." instance=ExtResource("6_d7tqj")]
+title = "LUNCH"
+initial_position = 0
+position = Vector2i(500, 319)
 always_on_top = true
 showtime = 12.0
-textboxText = "\"Uuugh another meeting. I just want to work and all they are doing is slowing me down.\""
-imagePath = "res://assets/popups/Office.png"
+textboxText = "*growl*
+\"... Ah. I really should eat more for breakfast. 
+Taking a lunch break is just too much of a hassle.\" "
+imagePath = "res://assets/popups/lunch.png"
 
 [node name="boss" parent="." instance=ExtResource("6_d7tqj")]
 title = "BOSS"
 initial_position = 0
-position = Vector2i(1000, 200)
+position = Vector2i(656, 200)
 always_on_top = true
 showtime = 16.0
 textboxText = "\"The boss is trying to get my attention. 
@@ -109,21 +123,43 @@ imagePath = "res://assets/popups/Boss.png"
 [node name="eveningMeeting4" parent="." instance=ExtResource("6_d7tqj")]
 title = "MEETING"
 initial_position = 0
-position = Vector2i(1000, 600)
+position = Vector2i(656, 319)
 always_on_top = true
 showtime = 18.0
-textboxText = "\"The boss is trying to get my attention. 
-Sure they're really friendly, I just wish they could be more brief. 
-... *sigh*
-... I really need to get some work done .\""
-imagePath = "res://assets/Office.png"
+textboxText = "\"Another meeting?
+End of day moral get together? 
+I'll pass, gotta work.\""
+imagePath = "res://assets/popups/Office_evening.png"
+
+[node name="overtime" parent="." instance=ExtResource("6_d7tqj")]
+title = "OVERTIME"
+initial_position = 0
+position = Vector2i(300, 319)
+always_on_top = true
+showtime = 18.0
+textboxText = "“It’s getting late… 
+I really need to go home.”"
+imagePath = "res://assets/popups/night.png"
+
+[node name="overtime2" parent="." instance=ExtResource("6_d7tqj")]
+title = "OVERTIME"
+initial_position = 0
+position = Vector2i(300, 319)
+always_on_top = true
+showtime = 19.0
+textboxText = "“I’m so tired…”"
+imagePath = "res://assets/popups/Office_evening.png"
 
 [connection signal="clock_changed" from="." to="beingSendHome" method="_on_control_clock_changed"]
 [connection signal="clock_changed" from="." to="morningMeeting" method="_on_control_clock_changed"]
 [connection signal="clock_changed" from="." to="middayMeeting2" method="_on_control_clock_changed"]
+[connection signal="clock_changed" from="." to="lunch" method="_on_control_clock_changed"]
 [connection signal="clock_changed" from="." to="boss" method="_on_control_clock_changed"]
 [connection signal="clock_changed" from="." to="eveningMeeting4" method="_on_control_clock_changed"]
 [connection signal="close_requested" from="morningMeeting" to="morningMeeting" method="_on_close_requested"]
 [connection signal="close_requested" from="middayMeeting2" to="middayMeeting2" method="_on_close_requested"]
+[connection signal="close_requested" from="lunch" to="lunch" method="_on_close_requested"]
 [connection signal="close_requested" from="boss" to="boss" method="_on_close_requested"]
 [connection signal="close_requested" from="eveningMeeting4" to="eveningMeeting4" method="_on_close_requested"]
+[connection signal="close_requested" from="overtime" to="overtime" method="_on_close_requested"]
+[connection signal="close_requested" from="overtime2" to="overtime2" method="_on_close_requested"]
