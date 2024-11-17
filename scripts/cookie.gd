@@ -26,9 +26,9 @@ func _on_pressed() -> void:
 		timer.start()
 	else :
 		buttonDone.emit(hitpoints)
+		self.disabled = true
 		var tween = get_tree().create_tween()
 		tween.tween_property(sprite, "modulate", Color(0,0,0,0), 0.2).set_ease(0).set_trans(1)		
-		
 		await tween.finished
 		queue_free()
 		#print("queue_free() happened")
