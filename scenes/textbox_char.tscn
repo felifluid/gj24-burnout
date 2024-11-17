@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds7xgtvwc0rse"]
+
+[ext_resource type="Script" path="res://scripts/char_textbox.gd" id="2_7qwgf"]
+[ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="2_qmej6"]
+
+[sub_resource type="Theme" id="Theme_4gnrg"]
+default_font = ExtResource("2_qmej6")
+default_font_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1bgf"]
+bg_color = Color(0.138613, 0.113984, 0.130442, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="TextBox" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 16)
+offset_right = 411.0
+offset_bottom = 48.0
+theme = SubResource("Theme_4gnrg")
+script = ExtResource("2_7qwgf")
+text = "Working under pressure feels like such a rush.
+I'm so excited for this project, I have so many ideas!
+It's time to go to bed now and get ready for a new productive day at work!"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j1bgf")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer"]
+texture_filter = 1
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Test"
+autowrap_mode = 3
+clip_text = true
+
+[node name="End" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_qmej6")
+theme_override_font_sizes/font_size = 8
+text = "V"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0

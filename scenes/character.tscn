@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://is2joemd5dpn"]
+[gd_scene load_steps=10 format=3 uid="uid://is2joemd5dpn"]
 
 [ext_resource type="Texture2D" uid="uid://pcuojgr6xr0q" path="res://assets/Walking.png" id="1_4b3nt"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_657ji"]
+[ext_resource type="PackedScene" uid="uid://ds7xgtvwc0rse" path="res://scenes/textbox_char.tscn" id="2_gpgpd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_miydk"]
 atlas = ExtResource("1_4b3nt")
@@ -42,23 +43,27 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ja7jt"]
 size = Vector2(12, 24)
 
-[node name="Character" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_657ji")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, -9)
 zoom = Vector2(4.1, 4.1)
-limit_smoothed = true
-position_smoothing_enabled = true
+position_smoothing_speed = 1.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="TextBox" parent="Camera2D" instance=ExtResource("2_gpgpd")]
+offset_left = -141.0
+offset_top = 46.0
+offset_right = 423.0
+offset_bottom = 112.0
+scale = Vector2(0.5, 0.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ohotu")
 frame = 2
 frame_progress = 0.905945
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_ja7jt")
