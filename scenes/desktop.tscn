@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cffubiq7vox1a" path="res://assets/screens/Desktop.png" id="1_5s8ba"]
 [ext_resource type="Script" path="res://scenes/desktop.gd" id="1_tew16"]
-[ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/clicker.tscn" id="2_7mfjj"]
+[ext_resource type="PackedScene" uid="uid://d2givtdscyxv4" path="res://scenes/clicker.tscn" id="2_3pdo6"]
 [ext_resource type="FontFile" uid="uid://0v4ooa2vvobe" path="res://assets/fonts/PublicPixel.ttf" id="4_i5w2l"]
 
 [sub_resource type="Theme" id="Theme_hnn1c"]
@@ -25,12 +25,12 @@ wait_time = 30.0
 one_shot = true
 autostart = true
 
-[node name="CookieClicker" parent="." instance=ExtResource("2_7mfjj")]
+[node name="CookieClicker" parent="." instance=ExtResource("2_3pdo6")]
 layout_mode = 1
-offset_left = 223.0
-offset_top = 52.0
+offset_left = 220.0
+offset_top = 48.0
 offset_right = -331.0
-offset_bottom = -171.0
+offset_bottom = -167.0
 
 [node name="Background" type="TextureRect" parent="."]
 show_behind_parent = true
